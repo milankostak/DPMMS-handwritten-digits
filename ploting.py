@@ -21,8 +21,9 @@ def plot_result(predictions, test_images, test_labels):
     for i in range(rows * cols):
         plt.subplot(rows, 2 * cols, 2 * i + 1)
         plot_image(i, predictions, test_labels, test_images)
+
         plt.subplot(rows, 2 * cols, 2 * i + 2)
-        plot_value_array(i, predictions, test_labels)
+        plot_value(i, predictions, test_labels)
     plt.show()
 
 
@@ -46,7 +47,7 @@ def plot_image(index, predictions, test_labels, test_images):
                color=color, fontsize=24)
 
 
-def plot_value_array(index, predictions, test_labels):
+def plot_value(index, predictions, test_labels):
     prediction, true_label = predictions[index], test_labels[index]
 
     plt.grid(False)
