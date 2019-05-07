@@ -1,6 +1,7 @@
 import tensorflow as tf
 import math
 import mnist
+# import time
 import ploting
 
 train_images = mnist.train_images()
@@ -44,8 +45,11 @@ model.compile(optimizer='adam',
 BATCH_SIZE = 1000
 
 # training
+# start = time.time()
 model.fit(x=train_images, y=train_labels, epochs=5, batch_size=BATCH_SIZE)
 # model.fit(x=train_images, y=train_labels, epochs=5, steps_per_epoch=math.ceil(num_train_examples / BATCH_SIZE))
+# end = time.time()
+# print("Time: " + str(end - start) + " s")
 
 # evaluating
 test_loss, test_accuracy = model.evaluate(x=test_images, y=test_labels, steps=math.ceil(num_test_examples / BATCH_SIZE))
