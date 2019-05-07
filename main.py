@@ -23,11 +23,14 @@ num_test_examples = test_images.shape[0]
 # check if data labeling is correct
 ploting.plot_init(train_images, train_labels)
 
+# activation - sigmoid, relu, relu6, leaky_relu, selu, tanh
 # model = tf.keras.Sequential([
 #     tf.keras.layers.Flatten(input_shape=(28, 28, 1)),
 #     tf.keras.layers.Dense(128, activation=tf.nn.relu),
 #     tf.keras.layers.Dense(10, activation=tf.nn.softmax)
 # ])
+# pooling - MaxPooling2D, AveragePooling2D
+# padding - same, valid
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(32, (3, 3), padding='same', activation=tf.nn.relu, input_shape=(28, 28, 1)),
     tf.keras.layers.MaxPooling2D((2, 2), strides=2),
