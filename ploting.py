@@ -14,16 +14,17 @@ def plot_init(images, labels):
     plt.show()
 
 
-def plot_result(predictions, test_images, test_labels):
+def plot_result(predictions, test_images, test_labels, offset=0):
     rows = 5
     cols = 3
     plt.figure(figsize=(2 * 2 * cols, 2 * rows))
     for i in range(rows * cols):
         plt.subplot(rows, 2 * cols, 2 * i + 1)
-        plot_image(i, predictions, test_labels, test_images)
+        ii = i + offset
+        plot_image(ii, predictions, test_labels, test_images)
 
         plt.subplot(rows, 2 * cols, 2 * i + 2)
-        plot_value(i, predictions, test_labels)
+        plot_value(ii, predictions, test_labels)
     plt.show()
 
 
