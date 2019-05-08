@@ -64,7 +64,7 @@ model.fit(x=train_images, y=train_labels, epochs=5, batch_size=BATCH_SIZE)
 # print("Time: " + str(end - start) + " s")
 
 # evaluating
-test_loss, test_accuracy = model.evaluate(x=test_images, y=test_labels, steps=math.ceil(num_test_examples / BATCH_SIZE))
+test_loss, test_accuracy = model.evaluate(x=test_images, y=test_labels, steps=1)
 
 print('\nAccuracy on test dataset: ', test_accuracy)
 
