@@ -26,20 +26,29 @@ ploting.plot_init(train_images, train_labels)
 # activation - sigmoid, relu, relu6, leaky_relu, selu, tanh
 # model = tf.keras.Sequential([
 #     tf.keras.layers.Flatten(input_shape=(28, 28, 1)),
+#     tf.keras.layers.Dense(4096, activation=tf.nn.relu),
+#     tf.keras.layers.Dense(1024, activation=tf.nn.relu),
 #     tf.keras.layers.Dense(128, activation=tf.nn.relu),
 #     tf.keras.layers.Dense(10, activation=tf.nn.softmax)
 # ])
+# best accuracy: 0.9843
+
 # pooling - MaxPooling2D, AveragePooling2D
 # padding - same, valid
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(32, (3, 3), padding='same', activation=tf.nn.relu, input_shape=(28, 28, 1)),
-    tf.keras.layers.MaxPooling2D((2, 2), strides=2),
-    tf.keras.layers.Conv2D(64, (3, 3), padding='same', activation=tf.nn.relu),
-    tf.keras.layers.MaxPooling2D((2, 2), strides=2),
+    tf.keras.layers.Conv2D(filters=32, kernel_size=(5, 5), padding='same', activation=tf.nn.relu, input_shape=(28, 28, 1)),
+    tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=1),
+    tf.keras.layers.Conv2D(64, (5, 5), padding='same', activation=tf.nn.relu),
+    tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=2),
+    tf.keras.layers.Conv2D(128, (5, 5), padding='same', activation=tf.nn.relu),
+    tf.keras.layers.MaxPooling2D(pool_size=(2, 2), strides=2),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(32, activation=tf.nn.relu),
+    # tf.keras.layers.Dense(4096, activation=tf.nn.relu),
+    tf.keras.layers.Dense(1024, activation=tf.nn.relu),
+    tf.keras.layers.Dense(128, activation=tf.nn.relu),
     tf.keras.layers.Dense(10, activation=tf.nn.softmax)
 ])
+# best accuracy: 0.9933
 
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
