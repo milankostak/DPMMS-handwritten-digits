@@ -1,5 +1,4 @@
 import tensorflow as tf
-import math
 import mnist
 # import time
 import ploting
@@ -59,7 +58,6 @@ BATCH_SIZE = 1000
 # training
 # start = time.time()
 model.fit(x=train_images, y=train_labels, epochs=5, batch_size=BATCH_SIZE)
-# model.fit(x=train_images, y=train_labels, epochs=5, steps_per_epoch=math.ceil(num_train_examples / BATCH_SIZE))
 # end = time.time()
 # print("Time: " + str(end - start) + " s")
 
@@ -70,3 +68,5 @@ print('\nAccuracy on test dataset: ', test_accuracy)
 
 predictions = model.predict(test_images)
 ploting.plot_result(predictions, test_images, test_labels)
+
+# exec(open("main.py").read())
