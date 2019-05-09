@@ -28,6 +28,35 @@ def plot_result(predictions, test_images, test_labels, offset=0):
     plt.show()
 
 
+def plot_wrong(predictions, test_images, test_labels, offset=0):
+    i = 0
+    rows = 5
+    cols = 3
+    plt.figure(figsize=(2 * 2 * cols, 2 * rows))
+    for j in range(len(predictions)):
+        if i >= rows * cols:
+            break
+
+        # skip if prediction is correct
+        true_label = test_labels[j]
+        predicted_label = np.argmax(predictions[j])
+        if predicted_label == true_label:
+            continue
+
+        # skip wring predictions until offset is zero
+        if offset > 0:
+            offset -= 1
+            continue
+
+        plt.subplot(rows, 2 * cols, 2 * i + 1)
+        plot_image(j, predictions, test_labels, test_images)
+
+        plt.subplot(rows, 2 * cols, 2 * i + 2)
+        plot_value(j, predictions, test_labels)
+        i += 1
+    plt.show()
+
+
 def plot_image(index, predictions, test_labels, test_images):
     prediction, true_label, img = predictions[index], test_labels[index], test_images[index]
 
