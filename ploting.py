@@ -43,7 +43,7 @@ def plot_wrong(predictions, test_images, test_labels, offset=0):
         if predicted_label == true_label:
             continue
 
-        # skip wring predictions until offset is zero
+        # skip wrong predictions until offset is zero
         if offset > 0:
             offset -= 1
             continue
