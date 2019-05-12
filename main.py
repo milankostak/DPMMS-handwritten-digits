@@ -25,6 +25,7 @@ ploting.plot_init(train_images, train_labels)
 
 # basic neural network with 3 hidden layers
 # best accuracy: 0.9843
+# Trainable params: 7,543,178
 #
 # activation - sigmoid, relu, relu6, leaky_relu, selu, tanh
 # model = tf.keras.Sequential([
@@ -37,6 +38,7 @@ ploting.plot_init(train_images, train_labels)
 
 # convolutional neural network
 # best accuracy: 0.9933
+# Trainable params: 5,109,130
 #
 # pooling - MaxPooling2D, AveragePooling2D
 # padding - same, valid
@@ -62,6 +64,9 @@ model.compile(optimizer='adam',
 # determines how often to perform backpropagation
 # bigger value can significantly speed up training
 BATCH_SIZE = 1000
+
+# summary of network layers and its parameters
+model.summary()
 
 # train the neural network for 5 epochs - run through train data 5 times
 # start = time.time()
