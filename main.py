@@ -57,9 +57,15 @@ model = tf.keras.Sequential([
 ])
 
 # compile neural network with default values for optimizer and loss function
-model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
+model.compile(
+    optimizer='adam',
+    # optimizer=tf.keras.optimizers.Adam(),
+    # optimizer=tf.keras.optimizers.SGD(),
+    # optimizer=tf.train.AdamOptimizer(),
+    # optimizer=tf.train.GradientDescentOptimizer(learning_rate=0.01),
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
 
 # determines how often to perform backpropagation
 # bigger value can significantly speed up training
